@@ -9,5 +9,5 @@ def hello_world():
 @app.route("/submit", methods=["POST"])
 def submit():
     input_name = request.form.get("name")
-    input_age = request.form.get("age")
-    return render_template("hello.html", name=input_name, age=input_age)
+    input_grade = request.form.get("grade")
+    return render_template("hello.html", name=input_name, grade=input_grade)

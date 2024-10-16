@@ -1,12 +1,22 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+
     <body>
-        <p>This is a paragraph</p>
-    <form action="/submit" method="post">
-        <label for="namefield">Name:</label>
-        <input type="text" id="namefield" name="name">
-        <label for="agefield">Age:</label>
-        <input type="number" id="agefield" name="age">
-        <input type="submit" value="Submit">
-    </form>
+        <h1>This is the website for SSE Lab 2</h1>
+        <p>Below is a form to give an expected grade!</p>
+        <form action="/submit" method="post">
+            <label for="namefield">Name:</label><br>
+            <input type="text" id="namefield" name="name"><br>
+            <p>Grade:</p>
+            <input type="radio" id="a1" name="grade" value="A+">
+            <label for="a">A+</label><br>
+            <input type="radio" id="a2" name="grade" value="A">
+            <label for="a">A</label><br>
+            <input type="radio" id="a3" name="grade" value="A-">
+            <label for="a">A-</label><br><br>
+            <input type="submit" value="Submit">
+        </form>
     </body>
 </html>
