@@ -15,6 +15,7 @@ jobs:
       - name: Run flake8
         run: flake8 .
 
+
   unit-test:
     needs: python-formatting
     runs-on: ubuntu-latest
@@ -23,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: test
-        run: pytest *.py
+        run: pytest /src/*.py
 
 
   deploy-to-impaas:
