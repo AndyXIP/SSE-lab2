@@ -15,28 +15,28 @@ jobs:
       - name: Run flake8
         run: flake8 .
 
-test:
-  needs: python-formatting
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+  test:
+    needs: python-formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: test
-      run: pytest *.py
+      - name: test
+        run: pytest *.py
 
 
-deploy-to-impaas:
-  needs: unit-test
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+  deploy-to-impaas:
+    needs: unit-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: ImPaaS-Deploy
-      uses: /impaas/impaas-deploy@v3
-      with:
-        app-name: axp24-sse-app
-        deployment-token: ${{ secrets.IMPAAS_DEPLOY_TOKEN }}
-        method: PLATFORM
+      - name: ImPaaS-Deploy
+        uses: /impaas/impaas-deploy@v3
+        with:
+          app-name: axp24-sse-app
+          deployment-token: ${{ secrets.IMPAAS_DEPLOY_TOKEN }}
+          method: PLATFORM
 
