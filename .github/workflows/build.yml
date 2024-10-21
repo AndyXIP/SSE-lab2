@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: test
-        run: pytest /src/*.py
+        run: pytest src/*.py
 
 
   deploy-to-impaas:
