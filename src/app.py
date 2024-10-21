@@ -14,3 +14,12 @@ def submit():
     input_name = request.form.get("name")
     input_grade = request.form.get("grade")
     return render_template("hello.html", name=input_name, grade=input_grade)
+
+
+@app.route("/query", methods=["GET"])
+def process_query():
+    q = request.args.get('q')
+    if (q == "dinosaurs"):
+        return "Dinosaurs ruled the Earth 200 million years ago"
+    else:
+        return "Unknown"

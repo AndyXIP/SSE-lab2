@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+
+    <body>
+        <h1>This is the website for SSE Lab 3</h1>
+        <p>Below is a search form</p>
+        <form action="/query" method="post">
+            <label for="namefield">Dinosaur? </label><br>
+            <input type="text" id="namefield" name="string"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
