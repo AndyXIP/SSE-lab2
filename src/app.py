@@ -26,5 +26,24 @@ def process_query(q):
         return "Dinosaurs ruled the Earth 200 million years ago"
     elif (q == "What is your name?"):
         return "The Scottish Swiss German"
+    elif "plus" in q:
+        return math_addition(q)
+    elif "multiplied" in q:
+        return math_multiplication(q)
     else:
         return "Unknown"
+
+def math_addition(q):
+    coord = q.split(" ")
+    coord[-1] = coord[-1].replace('?','')
+    num1 = int(coord[2])
+    num2 = int(coord[-1])
+    return str(num1 + num2)
+
+
+def math_multiplication(q):
+    coord = q.split(" ")
+    coord[-1] = coord[-1].replace('?','')
+    num1 = int(coord[2])
+    num2 = int(coord[-1])
+    return str(num1 * num2)
