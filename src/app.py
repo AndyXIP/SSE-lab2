@@ -28,5 +28,3 @@ def process_query(q):
         return "The Scottish Swiss German"
     else:
         return "Unknown"
-    
-
