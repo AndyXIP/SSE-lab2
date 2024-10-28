@@ -15,4 +15,4 @@ def test_query_return_name():
 
 
 def test_query_addition():
-    assert process_query("What is 2 plus 4?") == 6
+    assert process_query("What is 2 plus 4?") == '6'
