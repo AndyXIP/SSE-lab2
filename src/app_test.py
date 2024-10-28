@@ -19,5 +19,6 @@ def test_query_addition():
 
 
 def test_square_cube():
-    assert process_query(f"Which of the following numbers is both a square")
-    f(+"and a cube: 2, 3, 4, 64?") == '64'
+    question = "Which of the following numbers is both a square and a cube: "
+    numbers = "2, 3, 4, 64?"
+    assert process_query(question + numbers)
