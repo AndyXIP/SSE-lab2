@@ -30,6 +30,8 @@ def process_query(q):
         return math_addition(q)
     elif "multiplied" in q:
         return math_multiplication(q)
+    elif "largest" in q:
+        return maximum_of(q)
     else:
         return "Unknown"
 
@@ -48,3 +50,14 @@ def math_multiplication(q):
     num1 = int(coord[2])
     num2 = int(coord[-1])
     return str(num1 * num2)
+
+
+def maximum_of(q):
+    question = q.split(":")
+    question = question[1]
+    question = question.split(',')
+    question[-1] = question[-1].replace('?', '')
+    question[0] = int(question[0].replace(' ', ''))
+    question[1] = int(question[1].replace(' ', ''))
+    question[2] = int(question[2].replace(' ', ''))
+    return str(max(question[0], question[1], question[2]))
