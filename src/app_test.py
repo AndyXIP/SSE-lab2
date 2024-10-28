@@ -16,3 +16,7 @@ def test_query_return_name():
 
 def test_query_addition():
     assert process_query("What is 2 plus 4?") == '6'
+
+
+def test_square_cube():
+    assert process_query("Which of the following numbers is both a square and a cube: 2, 3, 4, 64?") == '64'
