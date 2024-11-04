@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-
+import requests
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ def hello_world():
 @app.route("/submit", methods=["POST"])
 def submit():
     username = request.form.get("name")
-    response = request.get("https://api.github.com/users/{username}/repos")
+    response = requests.get("https://api.github.com/users/{username}/repos")
     if response.status_code == 200:
         repos = response.json()
         for repo in repos:
