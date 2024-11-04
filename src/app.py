@@ -38,7 +38,7 @@ def display_username():
                     author = commit["commit"]["committer"]["name"]
                     date = commit["commit"]["committer"]["date"]
                     message = commit["commit"]["message"]
-                    repo_info.append([repo, author, date, message])
+                    repo_info.append([author, date, message])
     return render_template("githubrepos.html", name=username, repos=repo_info)
 
 
