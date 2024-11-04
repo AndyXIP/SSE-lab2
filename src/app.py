@@ -16,6 +16,16 @@ def submit():
     return render_template("hello.html", name=input_name, grade=input_grade)
 
 
+@app.route("/display_username", methods["POST"])
+def submit():
+    username = request.form.get("username")
+    response = requests.get("https://api.github.com/users/{username}/repos")
+    if response.status_code == 200:
+        repos = response.json()
+        for repo in repos:
+            print(repo["full_name"])
+    return render_template("githubrepos.html", name=username)
+
 @app.route("/query", methods=["GET"])
 def query():
     return process_query(request.args.get('q'))
