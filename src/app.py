@@ -11,7 +11,7 @@ def hello_world():
 
 
 @app.route("/getrepos")
-def hello_world():
+def getrepos():
     return render_template("getrepos.html")
 
 
@@ -23,7 +23,7 @@ def submit():
 
 
 @app.route("/display_username", methods=["POST"])
-def submit():
+def display_username():
     username = request.form.get("username")
     response = requests.get("https://api.github.com/users/{username}/repos")
     if response.status_code == 200:
