@@ -30,14 +30,14 @@ def display_username():
     if repos:
         repo_info = []
         for repo in repos:
-            url = f"https://api.github.com/repos/{repo["full_name"]}/commits"
+            url = f"https://api.github.com/repos/{repo}/commits"
             p = requests.get(url)
             if p.status_code == 200:
                 commits = p.json()
                 if commits:
                     commit = commits[0]
                     repo_template = []
-                    repo_template.append(repo["full_name"])
+                    repo_template.append(repo)
                     repo_template.append(commit["commit"]["committer"]["name"])
                     repo_template.append(commit["commit"]["committer"]["date"])
                     repo_template.append(commit["commit"]["message"])
