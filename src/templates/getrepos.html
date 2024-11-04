@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+
+    <body>
+        <h1>This is the website for SSE Lab 5</h1>
+        <form action="/githubrepos" method="post">
+            <label for="namefield">Username:</label><br>
+            <input type="text" id="namefield" name="username"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
