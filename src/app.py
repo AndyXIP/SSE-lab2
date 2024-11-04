@@ -28,18 +28,18 @@ def display_username():
     response = requests.get("https://api.github.com/users/{username}/repos")
     if response.status_code == 200:
         repos = response.json()
-    return render_template("githubrepos.html", name=username, repositories=repos)
+    return render_template("githubrepos.html", name=username, repos=repos)
 
 
 @app.route("/query", methods=["GET"])
 def query():
-    return process_query(request.args.get('q'))
+    return process_query(request.args.get("q"))
 
 
 def process_query(q):
-    if (q == "dinosaurs"):
+    if q == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
-    elif (q == "What is your name?"):
+    elif q == "What is your name?":
         return "The Scottish Swiss German"
     elif "plus" in q:
         return math_addition(q)
@@ -57,7 +57,7 @@ def process_query(q):
 
 def math_addition(q):
     coord = q.split(" ")
-    coord[-1] = coord[-1].replace('?', '')
+    coord[-1] = coord[-1].replace("?", "")
     num1 = int(coord[2])
     num2 = int(coord[-1])
     return str(num1 + num2)
@@ -65,7 +65,7 @@ def math_addition(q):
 
 def math_subtraction(q):
     coord = q.split(" ")
-    coord[-1] = coord[-1].replace('?', '')
+    coord[-1] = coord[-1].replace("?", "")
     num1 = int(coord[2])
     num2 = int(coord[-1])
     return str(num1 - num2)
@@ -73,7 +73,7 @@ def math_subtraction(q):
 
 def math_multiplication(q):
     coord = q.split(" ")
-    coord[-1] = coord[-1].replace('?', '')
+    coord[-1] = coord[-1].replace("?", "")
     num1 = int(coord[2])
     num2 = int(coord[-1])
     return str(num1 * num2)
@@ -82,24 +82,24 @@ def math_multiplication(q):
 def maximum_of(q):
     question = q.split(":")
     question = question[1]
-    question = question.split(',')
-    question[-1] = question[-1].replace('?', '')
-    question[0] = int(question[0].replace(' ', ''))
-    question[1] = int(question[1].replace(' ', ''))
-    question[2] = int(question[2].replace(' ', ''))
+    question = question.split(",")
+    question[-1] = question[-1].replace("?", "")
+    question[0] = int(question[0].replace(" ", ""))
+    question[1] = int(question[1].replace(" ", ""))
+    question[2] = int(question[2].replace(" ", ""))
     return str(max(question[0], question[1], question[2]))
 
 
 def square_and_cube(q):
-    question = q.split(':')
-    question = question[1].split(',')
-    question[-1] = question[-1].replace('?', '')
+    question = q.split(":")
+    question = question[1].split(",")
+    question[-1] = question[-1].replace("?", "")
     for i in range(0, len(question)):
-        question[i] = int(question[i].replace(' ', ''))
+        question[i] = int(question[i].replace(" ", ""))
     for num in question:
         print(num)
         if num in [1, 64, 729, 4096]:
             return str(num)
         else:
             continue
-    return ''
+    return ""
