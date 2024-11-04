@@ -17,7 +17,6 @@ def submit():
         repos = response.json()
         for repo in repos:
             print(repo["full_name"])
-    #return render_template("hello.html", name=username)
 
 
 @app.route("/query", methods=["GET"])
