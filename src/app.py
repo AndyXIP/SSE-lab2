@@ -35,10 +35,11 @@ def display_username():
                 commits = p.json()
                 if commits:
                     commit = commits[0]
+                    hash = commit["sha"]
                     author = commit["commit"]["committer"]["name"]
                     date = commit["commit"]["committer"]["date"]
                     message = commit["commit"]["message"]
-                    repo_info.append([repo, author, date, message])
+                    repo_info.append([repo, author, date, message, hash])
                 else:
                     repo_info = []
     else:
