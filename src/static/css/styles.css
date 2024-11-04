@@ -32,3 +32,9 @@ input[type="text"] {
 input[type="radio"] {
     margin: 15px;
 }
+
+/* Table border formatting */
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
