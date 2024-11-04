@@ -37,7 +37,7 @@ def display_username():
                 if commits:
                     commit = commits[0]
                     repo_template = []
-                    repo_template.append(repo)
+                    repo_template.append(repo["full_name"])
                     repo_template.append(commit["commit"]["committer"]["name"])
                     repo_template.append(commit["commit"]["committer"]["date"])
                     repo_template.append(commit["commit"]["message"])
