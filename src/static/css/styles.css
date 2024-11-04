@@ -38,3 +38,8 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
+
+.centered-table {
+  margin: 0 auto; /* Center the table */
+  width: 80%; /* Optional: set a width for the table */
+}
