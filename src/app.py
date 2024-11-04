@@ -40,7 +40,7 @@ def display_username():
                     repo_template.append(["commit"]["commiter"]["date"])
                     repo_template.append(["commit"]["message"])
                     repo_info.append(repo_template)
-    return render_template("githubrepos.html", name=username, repo=repo_info)
+    return render_template("githubrepos.html", name=username, repos=repo_info)
 
 
 @app.route("/query", methods=["GET"])
