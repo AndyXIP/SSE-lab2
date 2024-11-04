@@ -1,12 +1,18 @@
 from flask import Flask, render_template, request
 import requests
 
+
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello_world():
     return render_template("index.html")
+
+
+@app.route("/getrepos")
+def hello_world():
+    return render_template("getrepos.html")
 
 
 @app.route("/submit", methods=["POST"])
@@ -25,6 +31,7 @@ def submit():
         for repo in repos:
             print(repo["full_name"])
     return render_template("githubrepos.html", name=username)
+
 
 @app.route("/query", methods=["GET"])
 def query():
