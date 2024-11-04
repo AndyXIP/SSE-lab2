@@ -25,10 +25,8 @@ def getrepos():
 @app.route("/githubrepos", methods=["POST"])
 def display_username():
     username = request.form.get("username")
-    response = requests.get("https://api.github.com/users/{username}/repos")
-    repos = []
-    if response.status_code == 200:
-        repos = response.json()
+    p = requests.get("https://api.github.com/users/{username}/repos")
+    repos = [r["full_name"] for r in p.json()] if p.status_code == 200 else []
     return render_template("githubrepos.html", name=username, repos=repos)
 
 
