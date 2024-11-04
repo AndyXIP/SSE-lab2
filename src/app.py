@@ -34,11 +34,12 @@ def display_username():
             if p.status_code == 200:
                 commits = p.json()
                 if commits:
+                    commit = commits[0]
                     repo_template = []
                     repo_template.append(repo)
-                    repo_template.append(["commit"]["committer"]["name"])
-                    repo_template.append(["commit"]["committer"]["date"])
-                    repo_template.append(["commit"]["message"])
+                    repo_template.append(commit["commit"]["committer"]["name"])
+                    repo_template.append(commit["commit"]["committer"]["date"])
+                    repo_template.append(commit["commit"]["message"])
                     repo_info.append(repo_template)
     return render_template("githubrepos.html", name=username, repos=repo_info)
 
