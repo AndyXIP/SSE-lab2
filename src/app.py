@@ -40,8 +40,8 @@ def display_username():
                     date.append(["commit"]["commiter"]["date"])
                     message.append(["commit"]["message"])
     return render_template("githubrepos.html", name=username,
-                           repos=repos, author = author,
-                           date = date, message = message)
+                           repos=repos, author=author,
+                           date=date, message=message)
 
 
 @app.route("/query", methods=["GET"])
