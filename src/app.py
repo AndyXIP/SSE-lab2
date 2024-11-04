@@ -10,11 +10,6 @@ def hello_world():
     return render_template("index.html")
 
 
-@app.route("/getrepos")
-def getrepos():
-    return render_template("getrepos.html")
-
-
 @app.route("/submit", methods=["POST"])
 def submit():
     input_name = request.form.get("name")
@@ -22,15 +17,18 @@ def submit():
     return render_template("hello.html", name=input_name, grade=input_grade)
 
 
-@app.route("/display_username", methods=["POST"])
+@app.route("/getrepos")
+def getrepos():
+    return render_template("getrepos.html")
+
+
+@app.route("/githubrepos", methods=["POST"])
 def display_username():
     username = request.form.get("username")
     response = requests.get("https://api.github.com/users/{username}/repos")
     if response.status_code == 200:
         repos = response.json()
-        for repo in repos:
-            print(repo["full_name"])
-    return render_template("githubrepos.html", name=username)
+    return render_template("githubrepos.html", name=username, repositories=repos)
 
 
 @app.route("/query", methods=["GET"])
