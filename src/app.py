@@ -12,15 +12,13 @@ def hello_world():
 
 @app.route("/submit", methods=["POST"])
 def submit():
-    GITHUB_USERNAME = request.form.get("name")
-    
-    response = requests.get("https://api.github.com/users/{GITHUB_USERNAME}/repos")
+    username = request.form.get("name")
+    response = requests.get("https://api.github.com/users/{username}/repos")
     if response.status_code == 200:
         repos = response.json()
         for repo in repos:
             print(repo["full_name"])
-
-    return render_template("hello.html", name=GITHUB_USERNAME)
+    return render_template("hello.html", name=username)
 
 
 @app.route("/query", methods=["GET"])
