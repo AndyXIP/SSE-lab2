@@ -28,20 +28,19 @@ def display_username():
     p = requests.get("https://api.github.com/users/{username}/repos")
     repos = [r["full_name"] for r in p.json()] if p.status_code == 200 else []
     if repos:
-        author = []
-        date = []
-        message = []
+        repo_info = []
         for repo in repos:
             p = requests.get(f"https://api.github.com/repos/{repo}/commits")
             if p.status_code == 200:
                 commits = p.json()
                 if commits:
-                    author.append(["commit"]["commiter"]["name"])
-                    date.append(["commit"]["commiter"]["date"])
-                    message.append(["commit"]["message"])
-    return render_template("githubrepos.html", name=username,
-                           repos=repos, author=author,
-                           date=date, message=message)
+                    repo_template = []
+                    repo_template.append(repo)
+                    repo_template.append(["commit"]["commiter"]["name"])
+                    repo_template.append(["commit"]["commiter"]["date"])
+                    repo_template.append(["commit"]["message"])
+                    repo_info.append(repo_template)
+    return render_template("githubrepos.html", name=username, repo=repo_info)
 
 
 @app.route("/query", methods=["GET"])
