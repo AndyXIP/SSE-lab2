@@ -16,7 +16,7 @@ def submit():
     return render_template("hello.html", name=input_name, grade=input_grade)
 
 
-@app.route("/display_username", methods["POST"])
+@app.route("/display_username", methods=["POST"])
 def submit():
     username = request.form.get("username")
     response = requests.get("https://api.github.com/users/{username}/repos")
