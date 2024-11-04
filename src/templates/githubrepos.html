@@ -19,9 +19,12 @@
                         <tr>
                         {% for element in repo %}
                             <th>{{ element }}</th>
-                            {% endfor %}
+                        {% endfor %}
                         </tr>
-                    {% endif %}
+		    {% endfor %}
+		{% else %}
+		  <p>No repository found</p>
+		{% endif %}
             </table>
         </p>
         <p>
