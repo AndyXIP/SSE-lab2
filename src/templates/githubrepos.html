@@ -5,5 +5,16 @@
 
     <body>
         <h1>Hello {{ name }}!</h1>
+        <p>
+            {% if repos %}
+            <ul>
+                {% for i in repos %}
+                    <li>{{ i }}</li>
+                    {% endfor %}
+            </ul>
+            {% else %}
+                <p>No repository found</p>
+            {% endif %}
+        </p>
     </body>
 </html>
