@@ -25,7 +25,7 @@ def getrepos():
 @app.route("/githubrepos", methods=["POST"])
 def display_username():
     username = request.form.get("username")
-    p = requests.get("https://api.github.com/users/{username}/repos")
+    p = requests.get(f"https://api.github.com/users/{username}/repos")
     repos = [r["full_name"] for r in p.json()] if p.status_code == 200 else []
     if repos:
         repo_info = []
@@ -44,7 +44,7 @@ def display_username():
                     repo_info.append(repo_template)
     else:
         repo_info = []
-    return render_template("githubrepos.html", name=username, repos=repos)
+    return render_template("githubrepos.html", name=username, repos=repo_info)
 
 
 @app.route("/query", methods=["GET"])
