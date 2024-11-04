@@ -44,7 +44,7 @@ def display_username():
                     repo_info.append(repo_template)
     else:
         repo_info = []
-    return render_template("githubrepos.html", name=username, repos=repo_info)
+    return render_template("githubrepos.html", name=username, repos=repos)
 
 
 @app.route("/query", methods=["GET"])
