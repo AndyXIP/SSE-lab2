@@ -21,9 +21,9 @@
                 <tr>
                     {% for element in repo %}
                         {% if loop.first %}
-                            <th><a href="https://github.com/{{ element }}">{{ element }}</a></th>
+                            <td><a href="https://github.com/{{ element }}">{{ element }}</a></td>
                         {% else %}
-                            <th>{{ element }}</th>
+                            <td>{{ element }}</td>
                         {% endif %}
                     {% endfor %}
                 </tr>
