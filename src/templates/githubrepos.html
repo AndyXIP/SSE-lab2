@@ -20,11 +20,7 @@
             {% for repo in repos %}
                 <tr>
                     {% for element in repo %}
-                        {% if element == repo[0] %}
-                            <th><a href="https://github.com/{{ element }}">{{ element }}</a></th>
-                        {% else %}
-                            <th>{{ element }}</th>
-                        {% endif %}
+                        <th>{{ element }}</th>
                     {% endfor %}
                 </tr>
             {% endfor %}
