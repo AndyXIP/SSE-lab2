@@ -1,32 +1,38 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    </head>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Hello {{ name }}!</h1>
+    <p>This website is for SSE Lab 5</p>
+    
+    <table class="centered-table">
+        <tr>
+            <th>Repository Name</th>
+            <th>Author</th>
+            <th>Date</th>
+            <th>Commit Message</th>
+            <th>HASH</th>
+        </tr>
 
-    <body>
-        <h1>Hello {{ name }}!</h1>
-        <p>This website is for SSE Lab 5</p>
-        <p>
-            <table class="centered-table">
-              <tr>
-                <th>Repository Name</th>
-                <th>Author</th>
-                <th>Date</th>
-                <th>Commit Message</th>
-		<th>HASH</th>
-              </tr>
-                {% if repos %}
-                    {% for repo in repos %}
-                        <tr>
-                        {% for element in repo %}
+        {% if repos %}
+            {% for repo in repos %}
+                <tr>
+                    {% for element in repo %}
+                        {% if element == repo[0] %}
+                            <th><a href="https://github.com/{{ element }}">{{ element }}</a></th>
+                        {% else %}
                             <th>{{ element }}</th>
-                        {% endfor %}
-                        </tr>
-		    {% endfor %}
-		{% else %}
-		  <p>No repository found</p>
-		{% endif %}
-            </table>
-        </p>
-    </body>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="5">No repository found</td>
+            </tr>
+        {% endif %}
+    </table>
+</body>
 </html>
